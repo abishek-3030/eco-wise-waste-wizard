@@ -1,8 +1,9 @@
 
-import { Recycle, AlertTriangle, Info, Trash, Star } from 'lucide-react';
+import { Recycle, AlertTriangle, Info, Trash, Star, Minus, RotateCcw } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { type WasteSearchResult } from '@/services/wasteApiService';
 
 interface WasteResultCardProps {
@@ -76,39 +77,95 @@ const WasteResultCard = ({ item }: WasteResultCardProps) => {
 
         <Separator className="bg-eco-200" />
 
-        {/* Content Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Reuse Ideas */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <Recycle className="w-5 h-5 text-eco-600" />
-              <h4 className="font-semibold text-gray-900">Reuse Ideas</h4>
+        {/* 3 R's Tabs */}
+        <Tabs defaultValue="reuse" className="w-full">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="reuse" className="flex items-center gap-2">
+              <RotateCcw className="w-4 h-4" />
+              Reuse
+            </TabsTrigger>
+            <TabsTrigger value="reduce" className="flex items-center gap-2">
+              <Minus className="w-4 h-4" />
+              Reduce
+            </TabsTrigger>
+            <TabsTrigger value="recycle" className="flex items-center gap-2">
+              <Recycle className="w-4 h-4" />
+              Recycle
+            </TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="reuse" className="mt-4">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <RotateCcw className="w-5 h-5 text-green-600" />
+                <h4 className="font-semibold text-gray-900">Creative Reuse Ideas</h4>
+              </div>
+              <ul className="space-y-2">
+                {item.reuseIdeas.map((idea, index) => (
+                  <li key={index} className="flex items-start gap-2 text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                    <span>{idea}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-2">
-              {item.reuseIdeas.map((idea, index) => (
-                <li key={index} className="flex items-start gap-2 text-gray-700">
-                  <span className="w-1.5 h-1.5 bg-eco-500 rounded-full mt-2 flex-shrink-0" />
-                  <span>{idea}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          </TabsContent>
+          
+          <TabsContent value="reduce" className="mt-4">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <Minus className="w-5 h-5 text-blue-600" />
+                <h4 className="font-semibold text-gray-900">Ways to Reduce Waste</h4>
+              </div>
+              <ul className="space-y-2">
+                {item.reduceIdeas?.map((idea, index) => (
+                  <li key={index} className="flex items-start gap-2 text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                    <span>{idea}</span>
+                  </li>
+                )) || (
+                  <li className="text-gray-500 italic">Reduce ideas coming soon...</li>
+                )}
+              </ul>
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="recycle" className="mt-4">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <Recycle className="w-5 h-5 text-eco-600" />
+                <h4 className="font-semibold text-gray-900">Recycling Guidelines</h4>
+              </div>
+              <ul className="space-y-2">
+                {item.recycleIdeas?.map((idea, index) => (
+                  <li key={index} className="flex items-start gap-2 text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-eco-500 rounded-full mt-2 flex-shrink-0" />
+                    <span>{idea}</span>
+                  </li>
+                )) || (
+                  <li className="text-gray-500 italic">Recycling ideas coming soon...</li>
+                )}
+              </ul>
+            </div>
+          </TabsContent>
+        </Tabs>
 
-          {/* Cautions */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-amber-600" />
-              <h4 className="font-semibold text-gray-900">Important Cautions</h4>
-            </div>
-            <ul className="space-y-2">
-              {item.cautions.map((caution, index) => (
-                <li key={index} className="flex items-start gap-2 text-gray-700">
-                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
-                  <span>{caution}</span>
-                </li>
-              ))}
-            </ul>
+        <Separator className="bg-eco-200" />
+
+        {/* Cautions */}
+        <div className="space-y-3">
+          <div className="flex items-center gap-2">
+            <AlertTriangle className="w-5 h-5 text-amber-600" />
+            <h4 className="font-semibold text-gray-900">Important Cautions</h4>
           </div>
+          <ul className="space-y-2">
+            {item.cautions.map((caution, index) => (
+              <li key={index} className="flex items-start gap-2 text-gray-700">
+                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                <span>{caution}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <Separator className="bg-eco-200" />

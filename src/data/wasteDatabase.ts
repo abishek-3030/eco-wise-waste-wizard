@@ -1,9 +1,12 @@
+
 export interface WasteItem {
   id: string;
   name: string;
   category: string;
   binType: string;
   reuseIdeas: string[];
+  reduceIdeas: string[];
+  recycleIdeas: string[];
   cautions: string[];
   moreInfo: string;
   environmentalImpact: string;
@@ -24,6 +27,20 @@ export const wasteDatabase: WasteItem[] = [
       "DIY sprinkler system for garden watering",
       "Piggy bank for kids' savings",
       "Scoops for pet food or garden materials"
+    ],
+    reduceIdeas: [
+      "Use a reusable water bottle instead",
+      "Buy beverages in larger containers to reduce packaging",
+      "Choose products with minimal plastic packaging",
+      "Refill bottles when possible",
+      "Support brands using recycled plastic packaging"
+    ],
+    recycleIdeas: [
+      "Clean thoroughly and place in recycling bin",
+      "Remove labels and caps before recycling",
+      "Participate in bottle return programs where available",
+      "Take to specialized plastic recycling centers",
+      "Support companies that use recycled plastic in new products"
     ],
     cautions: [
       "Remove caps and labels before recycling",
@@ -49,6 +66,20 @@ export const wasteDatabase: WasteItem[] = [
       "Phone speakers/amplifiers (natural acoustics)",
       "Craft projects and holiday decorations",
       "Paint brush holders for artists"
+    ],
+    reduceIdeas: [
+      "Choose beverages in reusable containers",
+      "Buy larger cans to reduce per-serving packaging",
+      "Opt for fountain drinks with reusable cups",
+      "Support brands with minimal packaging",
+      "Choose beverages in glass bottles when possible"
+    ],
+    recycleIdeas: [
+      "Rinse and place in recycling bin",
+      "Collect and take to scrap metal dealers for cash",
+      "Participate in aluminum can drives",
+      "Crush cans to save recycling space",
+      "Support the circular economy by buying products made from recycled aluminum"
     ],
     cautions: [
       "Rinse to remove all food residue and sticky substances",
@@ -77,6 +108,20 @@ export const wasteDatabase: WasteItem[] = [
       "Craft supplies storage",
       "Homemade jam and preserve containers"
     ],
+    reduceIdeas: [
+      "Buy products in bulk to reduce jar quantity",
+      "Choose products with reusable packaging",
+      "Make homemade preserves instead of buying jarred",
+      "Reuse jars for food storage before disposal",
+      "Support brands using minimal glass packaging"
+    ],
+    recycleIdeas: [
+      "Clean thoroughly and sort by color",
+      "Remove all metal lids and plastic labels",
+      "Take to glass recycling centers",
+      "Participate in community glass collection programs",
+      "Support products made from recycled glass"
+    ],
     cautions: [
       "Remove all metal lids and plastic labels completely",
       "Rinse thoroughly and let dry",
@@ -96,10 +141,24 @@ export const wasteDatabase: WasteItem[] = [
     binType: "Compost Bin (Green)",
     reuseIdeas: [
       "Natural fertilizer for plants",
-      "Polish leather shoes",
-      "Natural teeth whitener",
-      "Compost accelerator",
-      "Face mask for skincare"
+      "Polish leather shoes naturally",
+      "Natural teeth whitener (rub inside on teeth)",
+      "Compost accelerator for garden",
+      "Face mask for skincare (potassium benefits)"
+    ],
+    reduceIdeas: [
+      "Buy bananas in appropriate quantities to avoid waste",
+      "Choose organic bananas to avoid pesticide residue",
+      "Use whole banana including peel in smoothies",
+      "Buy loose bananas instead of pre-packaged",
+      "Plan meals to use bananas before they spoil"
+    ],
+    recycleIdeas: [
+      "Add to home compost bin properly",
+      "Participate in municipal organic waste programs",
+      "Create banana peel fertilizer tea for plants",
+      "Add to worm composting systems",
+      "Use in community composting initiatives"
     ],
     cautions: [
       "Avoid putting on walkways - slipping hazard",
@@ -116,11 +175,25 @@ export const wasteDatabase: WasteItem[] = [
     category: "Electronics",
     binType: "E-Waste Collection Point",
     reuseIdeas: [
-      "Dedicated music player",
-      "Security camera with apps",
-      "Digital photo frame",
-      "Backup device",
-      "Donate to charity"
+      "Dedicated music player for workouts",
+      "Security camera with monitoring apps",
+      "Digital photo frame for memories",
+      "Backup device for emergencies",
+      "Donate to charity or schools"
+    ],
+    reduceIdeas: [
+      "Keep phones longer by using protective cases",
+      "Repair instead of replacing when possible",
+      "Buy refurbished phones instead of new",
+      "Choose phones with longer software support",
+      "Avoid unnecessary upgrades for minor improvements"
+    ],
+    recycleIdeas: [
+      "Participate in manufacturer take-back programs",
+      "Trade-in at electronics stores for credit",
+      "Donate to certified e-waste recyclers",
+      "Use carrier recycling programs",
+      "Support companies that use recycled materials"
     ],
     cautions: [
       "Remove personal data completely",
@@ -140,7 +213,23 @@ export const wasteDatabase: WasteItem[] = [
     reuseIdeas: [
       "Test if still functional for low-power devices",
       "Use in remote controls temporarily",
-      "Save for battery collection drives"
+      "Keep as emergency backup batteries",
+      "Use in non-critical devices like clocks",
+      "Donate working batteries to community centers"
+    ],
+    reduceIdeas: [
+      "Switch to rechargeable batteries",
+      "Use devices with built-in rechargeable batteries",
+      "Buy energy-efficient devices that last longer",
+      "Turn off devices when not in use",
+      "Choose solar-powered alternatives when possible"
+    ],
+    recycleIdeas: [
+      "Take to battery collection points at stores",
+      "Participate in community hazardous waste days",
+      "Use manufacturer recycling programs",
+      "Collect batteries for bulk recycling",
+      "Support battery recycling initiatives"
     ],
     cautions: [
       "Never throw in regular trash",
@@ -160,11 +249,25 @@ export const wasteDatabase: WasteItem[] = [
     binType: "Compost Bin (Green)",
     reuseIdeas: [
       "Garden fertilizer and soil amendment",
-      "Natural pest deterrent",
+      "Natural pest deterrent for ants and slugs",
       "Body scrub for exfoliation",
-      "Deodorizer for fridges",
-      "Grow mushrooms",
-      "Natural dye for crafts"
+      "Deodorizer for fridges and cars",
+      "Grow mushrooms at home",
+      "Natural dye for crafts and fabrics"
+    ],
+    reduceIdeas: [
+      "Make only the coffee you'll drink",
+      "Use a French press to reduce filter waste",
+      "Buy whole beans to reduce packaging",
+      "Choose fair-trade and organic coffee",
+      "Use reusable coffee filters"
+    ],
+    recycleIdeas: [
+      "Add to home composting system",
+      "Participate in municipal organic waste programs",
+      "Create liquid fertilizer by steeping in water",
+      "Mix with other organic materials for compost",
+      "Share with gardening community groups"
     ],
     cautions: [
       "Use in moderation in garden (too much can be acidic)",
@@ -181,12 +284,26 @@ export const wasteDatabase: WasteItem[] = [
     category: "Paper",
     binType: "Recycling Bin (Blue)",
     reuseIdeas: [
-      "Storage organizers",
-      "Kids' playhouses and forts",
-      "Drawer dividers",
+      "Storage organizers for closets and garages",
+      "Kids' playhouses and creative forts",
+      "Drawer dividers for organization",
       "Moving and shipping boxes",
-      "Craft projects",
-      "Cat toys and scratchers"
+      "Craft projects and art supplies",
+      "Cat toys and scratching surfaces"
+    ],
+    reduceIdeas: [
+      "Reuse boxes multiple times before recycling",
+      "Choose products with minimal packaging",
+      "Buy in bulk to reduce packaging per item",
+      "Request minimal packaging when ordering online",
+      "Choose digital receipts and documents"
+    ],
+    recycleIdeas: [
+      "Flatten and place in recycling bin",
+      "Remove all tape and staples first",
+      "Take to cardboard recycling centers",
+      "Participate in community recycling drives",
+      "Support products made from recycled cardboard"
     ],
     cautions: [
       "Remove all tape, staples, and labels",
@@ -206,10 +323,24 @@ export const wasteDatabase: WasteItem[] = [
     reuseIdeas: [
       "Home composting for garden fertilizer",
       "Worm bin food for vermiculture",
-      "Community composting programs",
-      "Bokashi fermentation method",
+      "Make vegetable stock from scraps",
       "Feed to backyard chickens (if permitted)",
-      "Make vegetable stock from scraps"
+      "Create natural plant fertilizer tea",
+      "Use in bokashi fermentation method"
+    ],
+    reduceIdeas: [
+      "Plan meals to avoid overbuying",
+      "Store food properly to extend freshness",
+      "Use 'ugly' fruits and vegetables",
+      "Repurpose leftovers into new meals",
+      "Learn proper portion sizes to avoid waste"
+    ],
+    recycleIdeas: [
+      "Participate in municipal composting programs",
+      "Join community composting initiatives",
+      "Create nutrient-rich soil amendment",
+      "Support restaurants that compost food waste",
+      "Use food waste collection services where available"
     ],
     cautions: [
       "No meat, dairy, or oily foods in home compost",
@@ -230,11 +361,25 @@ export const wasteDatabase: WasteItem[] = [
     binType: "E-Waste Collection Point",
     reuseIdeas: [
       "Donate to schools or charities if functional",
-      "Trade-in programs at electronics stores",
-      "Sell to refurbishment companies",
-      "Use for spare parts",
-      "Convert to dedicated-purpose device",
-      "Manufacturer take-back programs"
+      "Repurpose for dedicated tasks (music, photos)",
+      "Use for spare parts in repairs",
+      "Convert to smart home devices",
+      "Trade with others for different devices",
+      "Use in makerspaces for learning projects"
+    ],
+    reduceIdeas: [
+      "Repair instead of replacing when possible",
+      "Buy quality devices that last longer",
+      "Choose multi-functional devices",
+      "Avoid impulse purchases of gadgets",
+      "Research before buying to ensure you need it"
+    ],
+    recycleIdeas: [
+      "Use manufacturer take-back programs",
+      "Participate in electronics recycling events",
+      "Trade-in at electronics stores",
+      "Donate to certified e-waste recyclers",
+      "Support companies using recycled materials"
     ],
     cautions: [
       "Completely wipe all personal data",
