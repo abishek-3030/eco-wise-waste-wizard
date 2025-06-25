@@ -1,12 +1,12 @@
 
-import { Recycle, AlertTriangle, Info, Trash } from 'lucide-react';
+import { Recycle, AlertTriangle, Info, Trash, Star } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { type WasteItem } from '@/data/wasteDatabase';
+import { type WasteSearchResult } from '@/services/wasteApiService';
 
 interface WasteResultCardProps {
-  item: WasteItem;
+  item: WasteSearchResult;
 }
 
 const getBinIcon = (binType: string) => {
@@ -35,14 +35,30 @@ const getBinColor = (binType: string) => {
   }
 };
 
+const getConfidenceColor = (confidence: number) => {
+  if (confidence >= 0.8) return 'text-green-600';
+  if (confidence >= 0.5) return 'text-amber-600';
+  return 'text-gray-500';
+};
+
 const WasteResultCard = ({ item }: WasteResultCardProps) => {
   return (
     <Card className="p-6 hover:shadow-lg transition-all duration-300 animate-fade-in bg-white border-eco-200">
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-start justify-between">
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-1">{item.name}</h3>
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-2">
+              <h3 className="text-2xl font-bold text-gray-900">{item.name}</h3>
+              {item.confidence < 1.0 && (
+                <div className="flex items-center gap-1">
+                  <Star className={`w-4 h-4 ${getConfidenceColor(item.confidence)}`} />
+                  <span className={`text-xs font-medium ${getConfidenceColor(item.confidence)}`}>
+                    {Math.round(item.confidence * 100)}% match
+                  </span>
+                </div>
+              )}
+            </div>
             <Badge variant="outline" className="text-eco-700 border-eco-300">
               {item.category}
             </Badge>

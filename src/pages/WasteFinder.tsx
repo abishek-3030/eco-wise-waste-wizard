@@ -1,10 +1,10 @@
 
 import Navigation from '@/components/Navigation';
 import WasteSearchCard from '@/components/WasteSearchCard';
-import { getRandomWasteItem } from '@/data/wasteDatabase';
+import { getRandomWasteItem } from '@/services/wasteApiService';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Shuffle } from 'lucide-react';
+import { Shuffle, Database } from 'lucide-react';
 import { useState } from 'react';
 import WasteResultCard from '@/components/WasteResultCard';
 
@@ -24,9 +24,13 @@ const WasteFinder = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Waste Disposal <span className="text-eco-600">Finder</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-4">
               Search for any waste item to learn the best way to dispose of it responsibly
             </p>
+            <div className="flex items-center justify-center gap-2 text-sm text-eco-600">
+              <Database className="w-4 h-4" />
+              <span>Powered by comprehensive waste management database</span>
+            </div>
           </div>
 
           <WasteSearchCard />
@@ -39,7 +43,7 @@ const WasteFinder = () => {
                   Don't know what to search for?
                 </h2>
                 <p className="text-gray-600 mb-4">
-                  Try this random waste item to see how our system works
+                  Try this random waste item to see how our comprehensive system works
                 </p>
                 <Button 
                   onClick={handleGetRandomItem}
