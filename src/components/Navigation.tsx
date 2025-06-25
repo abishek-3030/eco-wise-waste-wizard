@@ -11,6 +11,8 @@ const Navigation = () => {
   const navigationItems = [
     { name: 'Home', href: '/' },
     { name: 'Waste Finder', href: '/finder' },
+    { name: 'Education', href: '/education' },
+    { name: 'World Events', href: '/events' },
     { name: 'Eco Facts', href: '/facts' },
     { name: 'About', href: '/about' }
   ];
@@ -30,13 +32,13 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navigationItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={cn(
-                  "text-gray-700 hover:text-eco-600 transition-colors font-medium relative",
+                  "text-gray-700 hover:text-eco-600 transition-colors font-medium relative px-2 py-1",
                   location.pathname === item.href && "text-eco-600"
                 )}
               >
@@ -51,7 +53,7 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-eco-600 hover:bg-eco-50 transition-colors"
+            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-eco-600 hover:bg-eco-50 transition-colors"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -59,7 +61,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-eco-200 bg-white">
+          <div className="lg:hidden py-4 border-t border-eco-200 bg-white">
             <div className="flex flex-col space-y-2">
               {navigationItems.map((item) => (
                 <Link
