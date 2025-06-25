@@ -1,4 +1,3 @@
-
 export interface WasteItem {
   id: string;
   name: string;
@@ -9,6 +8,7 @@ export interface WasteItem {
   moreInfo: string;
   environmentalImpact: string;
   keywords: string[];
+  disposalIcon?: string;
 }
 
 export const wasteDatabase: WasteItem[] = [
@@ -16,71 +16,84 @@ export const wasteDatabase: WasteItem[] = [
     id: "plastic-bottle",
     name: "Plastic Bottle",
     category: "Plastics",
-    binType: "Recycling Bin",
+    binType: "Recycling Bin (Blue)",
     reuseIdeas: [
-      "Create planters for small plants",
-      "Make bird feeders",
-      "Storage containers for small items",
-      "DIY sprinkler for garden",
-      "Piggy bank for kids"
+      "Create planters for small plants and herbs",
+      "Make bird feeders for your garden",
+      "Storage containers for small items and screws",
+      "DIY sprinkler system for garden watering",
+      "Piggy bank for kids' savings",
+      "Scoops for pet food or garden materials"
     ],
     cautions: [
       "Remove caps and labels before recycling",
-      "Rinse thoroughly to remove residue",
-      "Check recycling number - not all plastics accepted"
+      "Rinse thoroughly to remove all residue",
+      "Check recycling number - not all plastics accepted",
+      "Don't crush vertically (can jam sorting machines)",
+      "Remove any metal components"
     ],
-    moreInfo: "Plastic bottles are made from PET (Polyethylene Terephthalate) and can be recycled into new bottles, clothing, and carpets.",
-    environmentalImpact: "Takes 450-1000 years to decompose. Recycling one bottle saves enough energy to power a 60W light bulb for 3 hours.",
-    keywords: ["bottle", "plastic", "water", "soda", "beverage", "container"]
+    moreInfo: "Plastic bottles are made from PET (Polyethylene Terephthalate) and can be recycled into new bottles, clothing, and carpets. The recycling process involves cleaning, shredding, and melting the plastic.",
+    environmentalImpact: "Takes 450-1000 years to decompose naturally. Recycling one bottle saves enough energy to power a 60W light bulb for 3 hours and reduces CO2 emissions by 50%.",
+    keywords: ["bottle", "plastic", "water", "soda", "beverage", "container", "pet", "drink"],
+    disposalIcon: "♻️"
   },
   {
     id: "aluminum-can",
     name: "Aluminum Can",
     category: "Metals",
-    binType: "Recycling Bin",
+    binType: "Recycling Bin (Blue)",
     reuseIdeas: [
-      "Pencil holders and organizers",
-      "Mini planters for herbs",
-      "Lanterns with LED lights",
-      "Phone amplifiers",
-      "Craft projects and decorations"
+      "Pencil holders and desk organizers",
+      "Mini planters for herbs and succulents",
+      "DIY lanterns with LED tea lights",
+      "Phone speakers/amplifiers (natural acoustics)",
+      "Craft projects and holiday decorations",
+      "Paint brush holders for artists"
     ],
     cautions: [
-      "Rinse to remove food residue",
-      "Remove any plastic lids or straws",
-      "Crush lightly to save space"
+      "Rinse to remove all food residue and sticky substances",
+      "Remove any plastic lids, straws, or tabs",
+      "Crush lightly to save space (but not too flat)",
+      "Check for sharp edges after opening",
+      "Don't mix with steel cans if sorting required"
     ],
-    moreInfo: "Aluminum cans are 100% recyclable and can be recycled indefinitely without losing quality.",
-    environmentalImpact: "Recycling aluminum saves 95% of the energy needed to make new aluminum. One recycled can saves enough energy to run a TV for 3 hours.",
-    keywords: ["can", "aluminum", "soda", "beer", "beverage", "metal"]
+    moreInfo: "Aluminum cans are 100% recyclable and can be recycled indefinitely without losing quality. They can be back on store shelves as new cans within 60 days.",
+    environmentalImpact: "Recycling aluminum saves 95% of the energy needed to make new aluminum from ore. One recycled can saves enough energy to run a TV for 3 hours.",
+    keywords: ["can", "aluminum", "soda", "beer", "beverage", "metal", "drink", "cola"],
+    disposalIcon: "♻️"
   },
   {
     id: "glass-jar",
     name: "Glass Jar",
     category: "Glass",
-    binType: "Recycling Bin",
+    binType: "Glass Collection (Green) or Recycling Bin",
     reuseIdeas: [
-      "Food storage containers",
-      "Candle holders",
-      "Spice jars",
-      "Bathroom organizers",
-      "Drinking glasses",
-      "Terrariums for small plants"
+      "Food storage containers for pantry items",
+      "Homemade candles with wicks",
+      "Spice jars with custom labels",
+      "Bathroom organizers for cotton balls",
+      "Drinking glasses for casual use",
+      "Mini terrariums for small plants",
+      "Craft supplies storage",
+      "Homemade jam and preserve containers"
     ],
     cautions: [
-      "Remove metal lids and plastic labels",
-      "Rinse thoroughly",
-      "Separate by color if required locally"
+      "Remove all metal lids and plastic labels completely",
+      "Rinse thoroughly and let dry",
+      "Separate by color if required locally",
+      "Don't include broken glass in regular recycling",
+      "Check for cracks before reusing"
     ],
-    moreInfo: "Glass is 100% recyclable and can be recycled endlessly without loss in quality or purity.",
-    environmentalImpact: "Glass takes over 1 million years to decompose. Recycled glass melts at lower temperatures, saving energy.",
-    keywords: ["jar", "glass", "container", "mason", "pickle", "jam"]
+    moreInfo: "Glass is 100% recyclable and can be recycled endlessly without loss in quality or purity. Recycled glass melts at lower temperatures than raw materials.",
+    environmentalImpact: "Glass takes over 1 million years to decompose naturally. Using recycled glass in manufacturing reduces energy consumption by 30% and cuts CO2 emissions by 20%.",
+    keywords: ["jar", "glass", "container", "mason", "pickle", "jam", "sauce", "honey"],
+    disposalIcon: "🟢"
   },
   {
     id: "banana-peel",
     name: "Banana Peel",
     category: "Organic",
-    binType: "Compost Bin",
+    binType: "Compost Bin (Green)",
     reuseIdeas: [
       "Natural fertilizer for plants",
       "Polish leather shoes",
@@ -144,7 +157,7 @@ export const wasteDatabase: WasteItem[] = [
     id: "coffee-grounds",
     name: "Coffee Grounds",
     category: "Organic",
-    binType: "Compost Bin",
+    binType: "Compost Bin (Green)",
     reuseIdeas: [
       "Garden fertilizer and soil amendment",
       "Natural pest deterrent",
@@ -166,7 +179,7 @@ export const wasteDatabase: WasteItem[] = [
     id: "cardboard-box",
     name: "Cardboard Box",
     category: "Paper",
-    binType: "Recycling Bin",
+    binType: "Recycling Bin (Blue)",
     reuseIdeas: [
       "Storage organizers",
       "Kids' playhouses and forts",
@@ -184,6 +197,56 @@ export const wasteDatabase: WasteItem[] = [
     moreInfo: "Cardboard can be recycled 5-7 times before fibers become too short for reuse.",
     environmentalImpact: "Recycling cardboard saves 24% of energy compared to making new cardboard from trees.",
     keywords: ["cardboard", "box", "packaging", "shipping", "amazon", "paper"]
+  },
+  {
+    id: "food-waste",
+    name: "Food Scraps",
+    category: "Organic",
+    binType: "Compost Bin (Green)",
+    reuseIdeas: [
+      "Home composting for garden fertilizer",
+      "Worm bin food for vermiculture",
+      "Community composting programs",
+      "Bokashi fermentation method",
+      "Feed to backyard chickens (if permitted)",
+      "Make vegetable stock from scraps"
+    ],
+    cautions: [
+      "No meat, dairy, or oily foods in home compost",
+      "Keep separate from recyclables to avoid contamination",
+      "Use compostable bags or no bags",
+      "Don't compost diseased plants",
+      "Cover compost to avoid attracting pests"
+    ],
+    moreInfo: "Food waste makes up about 30% of household garbage but can be composted into valuable soil amendment. Includes fruit peels, vegetable scraps, and plant-based leftovers.",
+    environmentalImpact: "Composting food waste reduces methane emissions from landfills by 90%. Food waste in landfills produces 25% of methane emissions.",
+    keywords: ["food", "scraps", "organic", "compost", "vegetables", "fruit", "leftovers", "kitchen waste"],
+    disposalIcon: "🌱"
+  },
+  {
+    id: "electronic-device",
+    name: "Electronic Device",
+    category: "Electronics", 
+    binType: "E-Waste Collection Point",
+    reuseIdeas: [
+      "Donate to schools or charities if functional",
+      "Trade-in programs at electronics stores",
+      "Sell to refurbishment companies",
+      "Use for spare parts",
+      "Convert to dedicated-purpose device",
+      "Manufacturer take-back programs"
+    ],
+    cautions: [
+      "Completely wipe all personal data",
+      "Remove batteries if possible",
+      "Never throw in regular trash or recycling",
+      "Check for precious metal recovery programs",
+      "Keep intact - don't disassemble yourself"
+    ],
+    moreInfo: "Electronics contain both valuable materials (gold, silver, copper) and toxic substances (lead, mercury) requiring specialized processing.",
+    environmentalImpact: "E-waste is the world's fastest-growing waste stream. Proper recycling recovers valuable materials and prevents environmental contamination.",
+    keywords: ["electronics", "device", "computer", "tablet", "gadget", "appliance", "tech"],
+    disposalIcon: "🔌"
   }
 ];
 
@@ -192,11 +255,28 @@ export const searchWasteItem = (query: string): WasteItem[] => {
   
   const lowercaseQuery = query.toLowerCase();
   
-  return wasteDatabase.filter(item => 
+  const results = wasteDatabase.filter(item => 
     item.name.toLowerCase().includes(lowercaseQuery) ||
     item.keywords.some(keyword => keyword.includes(lowercaseQuery)) ||
     item.category.toLowerCase().includes(lowercaseQuery)
   );
+
+  // Sort by relevance (exact matches first, then partial matches)
+  return results.sort((a, b) => {
+    const aExactMatch = a.name.toLowerCase() === lowercaseQuery;
+    const bExactMatch = b.name.toLowerCase() === lowercaseQuery;
+    
+    if (aExactMatch && !bExactMatch) return -1;
+    if (!aExactMatch && bExactMatch) return 1;
+    
+    const aStartsWith = a.name.toLowerCase().startsWith(lowercaseQuery);
+    const bStartsWith = b.name.toLowerCase().startsWith(lowercaseQuery);
+    
+    if (aStartsWith && !bStartsWith) return -1;
+    if (!aStartsWith && bStartsWith) return 1;
+    
+    return 0;
+  });
 };
 
 export const getRandomWasteItem = (): WasteItem => {
